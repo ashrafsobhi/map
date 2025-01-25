@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>My World by amCharts</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, minimal-ui">
+    <style>
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+}
+
+#chartdiv {
+	width: 100vw;
+	height: 100vh;
+}
+    </style>
+  </head>
+  <body>
+
+
+<script src="https://cdn.amcharts.com/lib/editor/map/5/viewer.js"></script>
+<div id="chartdiv"></div>
+<script>
+
+/**
+ * -----------------------------------------------
+ * This map was created using amCharts Map Editor.
+ *
+ * To create your own map visit:
+ * https://pixelmap.amcharts.com/
+ *
+ * For more information on amCharts visit:
+ * https://www.amcharts.com/
+ * -----------------------------------------------
+ */
+
+am5viewer.create("chartdiv", {
+  "settings": {
+    "editor": {
+      "themeTags": [
+        "dark"
+      ],
+      "userData": {
+        "projection": "geoMercator",
+        "geodata": "worldLow"
+      },
+      "lineStrokeWidth": 13,
+      "lineStrokeDashLength": 4,
+      "linePointStrokeWidth": 8,
+      "fillColor": {
+        "type": "Color",
+        "value": "#879c39"
+      },
+      "linePointScale": 0.2,
+      "__parse": true
+    },
+    "editor.map": {
+      "minZoomLevel": 0.8,
+      "projection": "geoMercator",
+      "panX": "rotateX",
+      "zoomControl": {
+        "type": "ZoomControl",
+        "settings": {
+          "visible": true,
+          "position": "absolute",
+          "layout": {
+            "type": "VerticalLayout"
+          },
+          "themeTags": [
+            "zoomtools"
+          ],
+          "layer": 30
+        }
+      },
+      "background": {
+        "type": "Rectangle",
+        "settings": {
+          "fill": {
+            "type": "Color",
+            "value": "#1a1a1a"
+          },
+          "fillOpacity": 1,
+          "width": 1920,
+          "height": 957,
+          "x": 0,
+          "y": 0,
+          "fillPattern": {
+            "type": "GrainPattern",
+            "settings": {
+              "maxOpacity": 0.08,
+              "density": 0.2,
+              "colors": [
+                {
+                  "type": "Color",
+                  "value": "#aaaaaa"
+                }
+              ]
+            }
+          },
+          "isMeasured": false
+        }
+      },
+      "themeTags": [
+        "map"
+      ],
+      "translateX": 960,
+      "translateY": 680.7688879890895,
+      "rotationX": 5.256397123820555,
+      "__parse": true
+    },
+    "editor.pointTemplate": {
+      "toggleKey": "active",
+      "centerX": {
+        "type": "Percent",
+        "value": 50
+      },
+      "centerY": {
+        "type": "Percent",
+        "value": 50
+      },
+      "tooltipText": "{name}",
+      "__parse": true
+    },
+    "editor.bubbleTemplate": {
+      "toggleKey": "active",
+      "tooltipText": "{name}: {value}",
+      "__parse": true
+    },
+    "editor.pixelTemplate": {
+      "tooltipText": "{name}",
+      "toggleKey": "active",
+      "__parse": true,
+      "userData": {
+        "point1": {
+          "longitude": 33.32420800790126,
+          "latitude": 30.67414170139962
+        },
+        "point2": {
+          "longitude": 33.475910174654196,
+          "latitude": 30.67414170139962
+        }
+      }
+    },
+    "editor.linePointTemplate": {
+      "toggleKey": "active",
+      "centerX": {
+        "type": "Percent",
+        "value": 50
+      },
+      "centerY": {
+        "type": "Percent",
+        "value": 50
+      },
+      "tooltipText": "{name}",
+      "__parse": true
+    },
+    "editor.labelTemplate": {
+      "toggleKey": "active",
+      "tooltipText": "{name}",
+      "__parse": true
+    },
+    "editor.polygonSeries": {
+      "valueField": "value",
+      "calculateAggregates": true,
+      "id": "polygonseries",
+      "exclude": [
+        "AQ"
+      ],
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id",
+      "__parse": true
+    },
+    "editor.lineSeries": {
+      "layer": 30,
+      "id": "lineseries",
+      "lineTypeField": "lineType",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id",
+      "__parse": true
+    },
+    "editor.pointSeries": {
+      "fixedField": "fixed",
+      "id": "pointseries",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id",
+      "__parse": true
+    },
+    "editor.labelSeries": {
+      "fixedField": "fixed",
+      "id": "labelseries",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id",
+      "__parse": true
+    },
+    "editor.bubbleSeries": {
+      "calculateAggregates": true,
+      "valueField": "value",
+      "polygonIdField": "id",
+      "id": "bubbleseries",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id",
+      "__parse": true
+    },
+    "editor.gridSeries": {
+      "themeTags": [
+        "grid"
+      ],
+      "affectsBounds": false,
+      "lineTypeField": "lineType",
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id",
+      "clipExtent": true,
+      "__parse": true
+    },
+    "editor.backgroundSeries": {
+      "visible": false,
+      "themeTags": [
+        "polygon",
+        "background"
+      ],
+      "affectsBounds": false,
+      "geometryField": "geometry",
+      "geometryTypeField": "geometryType",
+      "idField": "id",
+      "__parse": true
+    },
+    "editor.backgroundSeries.mapPolygons.template": {
+      "forceInactive": true,
+      "fill": {
+        "type": "Color",
+        "value": "#222222"
+      },
+      "stroke": {
+        "type": "Color",
+        "value": "#222222"
+      },
+      "__parse": true
+    },
+    "editor.gridSeries.mapLines.template": {
+      "forceInactive": true,
+      "stroke": {
+        "type": "Color",
+        "value": "#ffffff"
+      },
+      "strokeOpacity": 0.04,
+      "__parse": true
+    }
+  },
+  "data": {
+    "editor.polygonSeries": [
+      {
+        "id": "PS",
+        "name": "Gaza",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "strokeWidth": 0.5,
+            "name": "Gaza",
+            "stroke": {
+              "type": "Color",
+              "value": "#63e7ab"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "IL",
+        "name": "Palestine",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "stroke": {
+              "type": "Color",
+              "value": "#c28282"
+            }
+          }
+        },
+        "__parse": true
+      },
+      {
+        "id": "EG",
+        "name": "Egypt",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "strokeWidth": 2,
+            "fill": {
+              "type": "Color",
+              "value": "#3f3f3f"
+            }
+          }
+        },
+        "__parse": true
+      }
+    ],
+    "editor.lineSeries": [],
+    "editor.pointSeries": [
+      {
+        "fixed": false,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            30.31905,
+            28.58586
+          ],
+          "__parse": false
+        },
+        "id": "point_1",
+        "name": "The 1 branch",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fillOpacity": 0.7,
+            "fill": {
+              "type": "Color",
+              "value": "#e03f35"
+            },
+            "stroke": {
+              "type": "Color",
+              "value": "#000000"
+            },
+            "strokeOpacity": 0.5,
+            "scale": 0.7,
+            "strokeWidth": 0.5,
+            "x": {
+              "type": "Percent",
+              "value": 10.572916666666666
+            },
+            "y": {
+              "type": "Percent",
+              "value": 46.917450365726225
+            },
+            "name": "The 1 branch",
+            "rotation": 0
+          }
+        },
+        "pointType": "Balloon",
+        "__parse": true
+      },
+      {
+        "fixed": false,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            29.24197,
+            27.38694
+          ],
+          "__parse": false
+        },
+        "id": "point_2",
+        "name": "The 2 branch",
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "fillOpacity": 0.7,
+            "fill": {
+              "type": "Color",
+              "value": "#e03f35"
+            },
+            "stroke": {
+              "type": "Color",
+              "value": "#000000"
+            },
+            "strokeOpacity": 0.5,
+            "scale": 0.7,
+            "strokeWidth": 0.5,
+            "x": {
+              "type": "Percent",
+              "value": 19.21875
+            },
+            "y": {
+              "type": "Percent",
+              "value": 56.42633228840125
+            },
+            "name": "The 2 branch"
+          }
+        },
+        "pointType": "Balloon",
+        "__parse": true
+      }
+    ],
+    "editor.labelSeries": [
+      {
+        "fixed": false,
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            29.86704,
+            28.36927
+          ],
+          "__parse": false
+        },
+        "id": "label_1",
+        "name": "Ashraf Sobhi",
+        "populateText": true,
+        "settings": {
+          "type": "Template",
+          "settings": {
+            "text": "Ashraf Sobhi",
+            "fill": {
+              "type": "Color",
+              "value": "#ffffff"
+            },
+            "fillOpacity": 1,
+            "fontSize": "1em",
+            "fontWeight": "bold",
+            "textAlign": "left",
+            "x": {
+              "type": "Percent",
+              "value": 19.895833333333332
+            },
+            "y": {
+              "type": "Percent",
+              "value": 37.19958202716823
+            },
+            "name": "Ashraf Sobhi"
+          }
+        },
+        "__parse": true
+      }
+    ],
+    "editor.bubbleSeries": [],
+    "editor.gridSeries": []
+  }
+});
+
+</script>
+
+  </body>
+</html>
